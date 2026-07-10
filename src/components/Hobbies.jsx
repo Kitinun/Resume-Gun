@@ -44,8 +44,8 @@ const Hobbies = () => {
     <motion.div 
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: "-10px" }}
+      transition={{ duration: 0.3 }}
       className="p-2 mt-20 laptop:mt-36 laptop:p-0" 
       id="hobbies"
     >
@@ -86,8 +86,8 @@ const Hobbies = () => {
               layout
               initial={{ opacity: 0, scale: 0.5, y: 50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-              transition={{ type: "spring", stiffness: 100, damping: 12, delay: index * 0.05 }}
+              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.1 } }}
+              transition={{ type: "spring", stiffness: 200, damping: 15, delay: index * 0.03 }}
               key={img.id}
               className={`relative group rounded-2xl overflow-hidden cursor-pointer ${img.span} bg-gray-100 dark:bg-zinc-800`}
               onClick={() => setSelectedImage(img)}
@@ -96,16 +96,16 @@ const Hobbies = () => {
                 <img
                   src={img.src}
                   alt={img.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   loading="lazy"
                   decoding="async"
                 />
                 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-200">
                   <span className="inline-block px-2 py-1 mb-2 text-xs font-medium bg-white/20 backdrop-blur-md text-white rounded-md uppercase tracking-wider">
                     {img.category}
                   </span>

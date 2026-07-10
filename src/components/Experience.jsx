@@ -77,8 +77,8 @@ const Experience = () => {
     <motion.div 
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: "-10px" }}
+      transition={{ duration: 0.3 }}
       className="p-2 mt-10 laptop:mt-36 laptop:p-0" 
       id="experiences"
     >
@@ -88,7 +88,7 @@ const Experience = () => {
         {allItems.map((item, index) => (
           <div
             key={index}
-            className="w-full h-full flex flex-col p-6 bg-white dark:bg-zinc-800/50 border border-gray-100 dark:border-zinc-800 rounded-2xl transition-all ease-out duration-300 hover:shadow-lg hover:-translate-y-1"
+            className="w-full h-full flex flex-col p-6 bg-white dark:bg-zinc-800/50 border border-gray-100 dark:border-zinc-800 rounded-2xl transition-all ease-out duration-200 hover:shadow-lg hover:-translate-y-1"
           >
             <div className="flex flex-col tablet:flex-row justify-between items-start gap-4 mb-4 flex-grow">
               <div className="flex items-start gap-4 flex-1">

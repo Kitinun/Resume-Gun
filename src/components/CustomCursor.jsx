@@ -43,8 +43,8 @@ const CustomCursor = () => {
         }}
         transition={{
           type: "tween",
-          ease: "backOut",
-          duration: 0.15,
+          ease: "easeOut",
+          duration: 0.05,
         }}
       />
       <motion.div
@@ -57,9 +57,9 @@ const CustomCursor = () => {
         }}
         transition={{
           type: "spring",
-          stiffness: 150,
-          damping: 15,
-          mass: 0.5,
+          stiffness: 400,
+          damping: 25,
+          mass: 0.2,
         }}
       />
     </>

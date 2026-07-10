@@ -12,8 +12,8 @@ const About = () => {
     <motion.div 
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.3 }}
       className="p-2 mt-10 laptop:mt-16 laptop:p-0" 
       id="about"
     >
@@ -31,40 +31,52 @@ const About = () => {
         </div>
         
         {/* Code Content */}
-        <div className="p-4 tablet:p-6 font-mono text-sm tablet:text-base laptop:text-lg text-gray-300 overflow-x-auto leading-relaxed">
-          <div className="flex">
+        <motion.div 
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+            }
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="p-4 tablet:p-6 font-mono text-sm tablet:text-base laptop:text-lg text-gray-300 overflow-x-auto leading-relaxed"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">1</span>
             <div><span className="text-[#c678dd]">const</span> <span className="text-[#e5c07b]">developer</span> <span className="text-[#56b6c2]">=</span> {'{'}</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">2</span>
             <div className="ml-8"><span className="text-[#e06c75]">name:</span> <span className="text-[#98c379]">"{t.hero.name}"</span>,</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">3</span>
             <div className="ml-8"><span className="text-[#e06c75]">role:</span> <span className="text-[#98c379]">"{t.hero.role}"</span>,</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">4</span>
             <div className="ml-8"><span className="text-[#e06c75]">skills:</span> [<span className="text-[#98c379]">"React"</span>, <span className="text-[#98c379]">"Node.js"</span>, <span className="text-[#98c379]">"SQL"</span>, <span className="text-[#98c379]">"Docker"</span>],</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">5</span>
             <div className="ml-8"><span className="text-[#e06c75]">bio:</span> <span className="text-[#98c379]">`</span></div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">6</span>
             <div className="ml-12 text-[#98c379] whitespace-pre-wrap">{t.about.description}</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">7</span>
             <div className="ml-8 text-[#98c379]">`</div>
-          </div>
-          <div className="flex">
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">8</span>
             <div>{'}'};</div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* GitHub Contributions Heatmap */}
