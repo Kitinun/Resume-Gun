@@ -32,13 +32,8 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
     }
   };
 
-  const downloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/image/resume/Kitinun Khonson.pdf';
-    link.download = 'Kitinun_Khonson_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const viewResume = () => {
+    document.dispatchEvent(new Event("open-resume-modal"));
   };
 
   return (
@@ -122,12 +117,12 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
 
             <Command.Item 
-              value="resume download โหลด เรซูเม่ cv"
-              onSelect={() => runCommand(downloadResume)}
+              value="resume download view โหลด ดู เรซูเม่ cv"
+              onSelect={() => runCommand(viewResume)}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
               <Download className="w-4 h-4" />
-              {t.nav?.resume || "Download Resume"}
+              {language === 'en' ? "Preview Resume" : "ดูเรซูเม่"}
             </Command.Item>
           </Command.Group>
         </Command.List>

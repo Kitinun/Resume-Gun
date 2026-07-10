@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "../contexts/LanguageContext";
 import { X, Download, Command } from "lucide-react";
@@ -9,6 +9,13 @@ const Navbar = ({ isDark, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+
+  // Listen for custom event to open resume modal (e.g. from CommandPalette)
+  useEffect(() => {
+    const handleOpenModal = () => setShowResumeModal(true);
+    document.addEventListener("open-resume-modal", handleOpenModal);
+    return () => document.removeEventListener("open-resume-modal", handleOpenModal);
+  }, []);
   const navItems = [
     { key: "about", href: "#about" },
     { key: "experiences", href: "#experiences" },
@@ -64,7 +71,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
               onClick={toggleLanguage}
               className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors ml-1"
             >
-              {language === 'en' ? 'TH' : 'EN'}
+              {language === 'en' ? 'EN' : 'TH'}
             </button>
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           </div>
@@ -76,7 +83,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
             onClick={toggleLanguage}
             className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
           >
-            {language === 'en' ? 'TH' : 'EN'}
+            {language === 'en' ? 'EN' : 'TH'}
           </button>
           <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           <button
