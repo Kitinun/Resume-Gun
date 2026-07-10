@@ -27,7 +27,8 @@ export const en = {
 
   // Experience
   experience: {
-    title: 'Experience & Education.',
+    title: 'Experience.',
+    educationTitle: 'Education.',
     roles: {
       'MIS_SUT': 'Full Stack Developer',
       'DHR_SUT': 'Full Stack Developer',

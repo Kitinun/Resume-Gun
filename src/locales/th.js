@@ -28,7 +28,8 @@ export const th = {
 
   // Experience
   experience: {
-    title: "ประสบการณ์และการศึกษา.",
+    title: "ประสบการณ์การทำงาน.",
+    educationTitle: "ประวัติการศึกษา.",
     roles: {
       MIS_SUT: "Full Stack Developer",
       DHR_SUT: "Full Stack Developer",

@@ -122,8 +122,6 @@ const Experience = () => {
     }
   ];
 
-  const allItems = [...experiences, ...education];
-
   // Calculate total months for all work experiences
   const totalWorkMonths = experiences.reduce((acc, exp) => {
     const dur = calculateDurationData(exp.period);
@@ -149,10 +147,11 @@ const Experience = () => {
         </span>
       </p>
       
-      <div className="grid grid-cols-1 gap-6 laptop:grid-cols-2">
-        {allItems.map((item, index) => (
+      {/* Work Experience Section */}
+      <div className="grid grid-cols-1 gap-6 laptop:grid-cols-2 mb-16">
+        {experiences.map((item, index) => (
           <div
-            key={index}
+            key={`work-${index}`}
             className="w-full h-full flex flex-col p-6 bg-white dark:bg-zinc-800/50 border border-gray-100 dark:border-zinc-800 rounded-2xl transition-all ease-out duration-200 hover:shadow-lg hover:-translate-y-1"
           >
             <div className="flex flex-col tablet:flex-row justify-between items-start gap-4 mb-4 flex-grow">
@@ -170,7 +169,7 @@ const Experience = () => {
               <div className="tablet:text-right shrink-0 mt-2 tablet:mt-0">
                 <span className="inline-flex items-center px-3 py-1 bg-gray-100 dark:bg-zinc-700 rounded-full text-xs font-medium">
                   {item.period}
-                  {item.type === 'work' && calculateDurationData(item.period) && (
+                  {calculateDurationData(item.period) && (
                     <span className="ml-1 pl-1 border-l border-gray-300 dark:border-zinc-500 opacity-70">
                       {formatDuration(calculateDurationData(item.period).yrs, calculateDurationData(item.period).mos, language)}
                     </span>
@@ -189,6 +188,40 @@ const Experience = () => {
                 ))}
               </div>
             )}
+          </div>
+        ))}
+      </div>
+
+      {/* Education Section */}
+      <h1 className="text-4xl font-bold mb-10 font-mono">
+        <HackerText text={t.experience.educationTitle} />
+      </h1>
+      
+      <div className="grid grid-cols-1 gap-6 laptop:grid-cols-2">
+        {education.map((item, index) => (
+          <div
+            key={`edu-${index}`}
+            className="w-full h-full flex flex-col p-6 bg-white dark:bg-zinc-800/50 border border-gray-100 dark:border-zinc-800 rounded-2xl transition-all ease-out duration-200 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div className="flex flex-col tablet:flex-row justify-between items-start gap-4 flex-grow">
+              <div className="flex items-start gap-4 flex-1">
+                {item.image && (
+                  <div className="w-14 h-14 shrink-0 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-sm flex items-center justify-center p-1">
+                    <img src={item.image} alt={item.company} className="w-full h-full object-contain rounded-lg" />
+                  </div>
+                )}
+                <div>
+                  <h1 className="text-xl font-semibold leading-tight mb-1">{item.role}</h1>
+                  <h2 className="text-base text-blue-600 dark:text-blue-400 font-medium">{item.company}</h2>
+                </div>
+              </div>
+              <div className="tablet:text-right shrink-0 mt-2 tablet:mt-0">
+                <span className="inline-flex items-center px-3 py-1 bg-gray-100 dark:bg-zinc-700 rounded-full text-xs font-medium">
+                  {item.period}
+                </span>
+                <p className="text-xs opacity-50 mt-2">{item.location}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
