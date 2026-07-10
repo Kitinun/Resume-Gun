@@ -35,7 +35,7 @@ export const en = {
       'ApplicationDD': 'Front-End Developer',
       'MEMSG': 'Mobile Developer (React Native)',
       'Uni': "Bachelor's degree Information Technology",
-      'HighSchool': 'High School'
+      'HighSchool': 'Primary and High School'
     },
     companies: {
       'MIS_SUT': 'Management Information System Development Unit (MIS)',

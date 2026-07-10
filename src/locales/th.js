@@ -36,7 +36,7 @@ export const th = {
       ApplicationDD: "Front-End Developer",
       MEMSG: "Mobile Developer (React Native)",
       Uni: "ปริญญาตรี เทคโนโลยีสารสนเทศ (IT)",
-      HighSchool: "มัธยมศึกษา",
+      HighSchool: "ประถมศึกษา และมัธยมศึกษา",
     },
     companies: {
       MIS_SUT: "สถานส่งเสริมและพัฒนาระบบสารสนเทศเพื่อการจัดการ (สพส.)",
