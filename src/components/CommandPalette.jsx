@@ -66,6 +66,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
 
           <Command.Group heading={t.nav?.navigation || "Navigation"} className="px-2 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
             <Command.Item 
+              value="about me เกี่ยวกับ ประวัติ"
               onSelect={() => runCommand(() => scrollTo('about'))}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -74,6 +75,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
             
             <Command.Item 
+              value="experience work ประสบการณ์ ทำงาน"
               onSelect={() => runCommand(() => scrollTo('experiences'))}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -82,6 +84,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
             
             <Command.Item 
+              value="projects portfolio ผลงาน โปรเจกต์"
               onSelect={() => runCommand(() => scrollTo('projects'))}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -90,6 +93,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
             
             <Command.Item 
+              value="contact ติดต่อ"
               onSelect={() => runCommand(() => scrollTo('contact'))}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -100,6 +104,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
 
           <Command.Group heading={language === 'en' ? "Actions" : "คำสั่งเพิ่มเติม"} className="px-2 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
             <Command.Item 
+              value="theme dark mode light mode เปลี่ยนธีม สี มืด สว่าง"
               onSelect={() => runCommand(toggleTheme)}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -108,6 +113,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
 
             <Command.Item 
+              value="language thai english ภาษา เปลี่ยนภาษา ไทย อังกฤษ"
               onSelect={() => runCommand(toggleLanguage)}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
@@ -116,6 +122,7 @@ const CommandPalette = ({ isDark, toggleTheme }) => {
             </Command.Item>
 
             <Command.Item 
+              value="resume download โหลด เรซูเม่ cv"
               onSelect={() => runCommand(downloadResume)}
               className="flex items-center gap-3 px-4 py-3 mt-1 rounded-lg text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 aria-selected:bg-gray-100 dark:aria-selected:bg-zinc-800 transition-colors"
             >
