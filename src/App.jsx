@@ -6,8 +6,9 @@ import Hero from "./components/Hero";
 import useTheme from "./hooks/useTheme";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
+import BootSequence from "./components/BootSequence";
+
 // Lazy load non-critical components to improve Initial Load Time (LCP/TBT)
-const BootSequence = lazy(() => import("./components/BootSequence"));
 const CommandPalette = lazy(() => import("./components/CommandPalette"));
 const ParticlesBackground = lazy(() => import("./components/ParticlesBackground"));
 const About = lazy(() => import("./components/About"));
@@ -29,8 +30,8 @@ const App = () => {
     <LanguageProvider>
       <Suspense fallback={null}>
         <CommandPalette isDark={isDark} toggleTheme={toggleTheme} />
-        <BootSequence />
       </Suspense>
+      <BootSequence />
       <CustomCursor />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left z-[9999]"
