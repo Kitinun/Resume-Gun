@@ -4,11 +4,14 @@
     <script>
       (function () {
         var theme = localStorage.getItem("theme");
-        if (
-          theme === "dark" ||
-          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
+        var prefersDark = !theme && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (theme === "dark" || prefersDark) {
           document.documentElement.classList.add("dark");
+          document.documentElement.style.backgroundColor = "#09090b";
+          document.documentElement.style.colorScheme = "dark";
+        } else {
+          document.documentElement.style.backgroundColor = "#ffffff";
+          document.documentElement.style.colorScheme = "light";
         }
       })();
     </script>
@@ -67,7 +70,16 @@
     />
   </head>
   <body>
-    <div id="root"></div>
+    <script>
+      // Set body bg immediately to prevent FOUC
+      (function() {
+        var t = localStorage.getItem("theme");
+        var d = t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.body.style.backgroundColor = d ? "#09090b" : "#ffffff";
+        document.body.style.margin = "0";
+      })();
+    </script>
+    <div id="root" style="background-color:inherit"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

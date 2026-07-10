@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const bootLines = [
-  "INITIALIZING KERNEL...",
+  "INITIALIZING NEURAL KERNEL v9.0.1...",
   "LOADING DEPENDENCIES: REACT, VITE, TAILWIND...",
-  "MOUNTING FILE SYSTEM...",
-  "ESTABLISHING SECURE CONNECTION...",
+  "ESTABLISHING SECURE CONNECTION... [OK]",
   "BYPASSING MAINFRAME SECURITY PROTOCOLS... [OK]",
-  "DECRYPTING PORTFOLIO DATA...",
-  "LOADING ASSETS...",
+  "DECRYPTING PROFILE DATA: GUN KITINUN...",
+  "PROGRESS: [██████████████████░░] 90%",
+  "LOADING 3D HOLOGRAPHIC ASSETS...",
   "SYSTEM READY.",
   "ACCESS GRANTED."
 ];

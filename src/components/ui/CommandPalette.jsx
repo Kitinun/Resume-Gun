@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Command } from "cmdk";
 import { User, Briefcase, Code, Mail, Sun, Moon, Languages, Download } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const CommandPalette = ({ isDark, toggleTheme }) => {
   const [open, setOpen] = useState(false);

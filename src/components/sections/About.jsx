@@ -1,14 +1,9 @@
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { motion } from "framer-motion";
-import { GitHubCalendar } from 'react-github-calendar';
-import useTheme from "../hooks/useTheme";
-import { Github, Music } from "lucide-react";
-import SpotifyWidget from "./SpotifyWidget";
-import HackerText from "./HackerText";
+import HackerText from "../ui/HackerText";
 
 const About = () => {
   const { t } = useLanguage();
-  const { isDark } = useTheme();
   return (
     <motion.div 
       initial={{ opacity: 0, y: 50 }}
@@ -61,56 +56,52 @@ const About = () => {
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
             <span className="text-gray-600 mr-4 select-none w-4 text-right">4</span>
-            <div className="ml-8"><span className="text-[#e06c75]">skills:</span> [<span className="text-[#98c379]">"React"</span>, <span className="text-[#98c379]">"Node.js"</span>, <span className="text-[#98c379]">"SQL"</span>, <span className="text-[#98c379]">"Docker"</span>],</div>
+            <div className="ml-8"><span className="text-[#e06c75]">skills:</span> {'{'}</div>
+          </motion.div>
+          {[
+            { key: "frontend", items: ["ReactJS", "NextJS", "TailwindCSS", "Bootstrap", "HTML", "JavaScript", "TypeScript"] },
+            { key: "backend", items: ["NodeJS", "PHP"] },
+            { key: "database", items: ["MySQL", "MSSQL"] },
+            { key: "devops", items: ["Docker", "CI/CD", "Git"] },
+            { key: "tools", items: ["Figma", "WordPress", "Airtable", "Budibase", "Zoho CRM", "Pipedrive"] },
+            { key: "automation", items: ["n8n", "Make", "LineOA"] },
+            { key: "marketing", items: ["GTM", "GGADS"] }
+          ].map((category, idx) => (
+            <motion.div key={category.key} variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
+              <span className="text-gray-600 mr-4 select-none w-4 text-right">{5 + idx}</span>
+              <div className="ml-12">
+                <span className="text-[#e06c75]">{category.key}:</span> [
+                {category.items.map((skill, index, arr) => (
+                  <span key={skill}>
+                    <span className="text-[#98c379]">"{skill}"</span>
+                    {index < arr.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+                ]{idx < 6 ? "," : ""}
+              </div>
+            </motion.div>
+          ))}
+          <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
+            <span className="text-gray-600 mr-4 select-none w-4 text-right">12</span>
+            <div className="ml-8">{'}'},</div>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
-            <span className="text-gray-600 mr-4 select-none w-4 text-right">5</span>
+            <span className="text-gray-600 mr-4 select-none w-4 text-right">13</span>
             <div className="ml-8"><span className="text-[#e06c75]">bio:</span> <span className="text-[#98c379]">`</span></div>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
-            <span className="text-gray-600 mr-4 select-none w-4 text-right">6</span>
+            <span className="text-gray-600 mr-4 select-none w-4 text-right">14</span>
             <div className="ml-12 text-[#98c379] whitespace-pre-wrap">{t.about.description}</div>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
-            <span className="text-gray-600 mr-4 select-none w-4 text-right">7</span>
+            <span className="text-gray-600 mr-4 select-none w-4 text-right">15</span>
             <div className="ml-8 text-[#98c379]">`</div>
           </motion.div>
           <motion.div variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex">
-            <span className="text-gray-600 mr-4 select-none w-4 text-right">8</span>
+            <span className="text-gray-600 mr-4 select-none w-4 text-right">16</span>
             <div>{'}'};</div>
           </motion.div>
         </motion.div>
-      </div>
-
-      {/* GitHub Contributions Heatmap */}
-      <div className="mt-16 w-full tablet:mx-10 laptop:w-4/5">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Github className="w-6 h-6" /> GitHub Contributions
-        </h2>
-        <div className="p-6 rounded-xl bg-white dark:bg-[#1e1e1e] shadow-xl border border-gray-100 dark:border-gray-800 overflow-x-auto flex justify-center">
-          <GitHubCalendar 
-            username="Kitinun" 
-            colorScheme={isDark ? "dark" : "light"}
-            fontSize={14}
-            blockSize={12}
-            blockMargin={4}
-          />
-        </div>
-      </div>
-
-      {/* Dashboard Widgets */}
-      <div className="mt-20 w-full flex flex-col items-center justify-center">
-        {/* Spotify Currently Playing */}
-        <div className="w-full max-w-sm flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-6 flex items-center justify-center gap-2 text-gray-800 dark:text-white">
-            <Music className="w-6 h-6 text-green-500" /> Listening To
-          </h2>
-          <div className="w-full relative group">
-            {/* Soft background glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-            <SpotifyWidget />
-          </div>
-        </div>
       </div>
     </motion.div>
   );

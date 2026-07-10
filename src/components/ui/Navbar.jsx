@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { X, Download, Command } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -26,7 +26,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-gray-100 dark:border-zinc-900 transition-colors duration-300">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-gray-100 dark:border-zinc-900">
         <div className="container mx-auto px-4 max-w-screen-xl py-4">
           <div className="flex flex-row items-center justify-between">
         <h1 className="font-bold font-mono cursor-pointer text-2xl text-blue-600 dark:text-blue-400">&lt;Kitinun /&gt;</h1>

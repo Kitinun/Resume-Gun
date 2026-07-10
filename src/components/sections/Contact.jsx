@@ -1,4 +1,4 @@
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Github, Gitlab, Linkedin, Facebook } from "lucide-react";
 

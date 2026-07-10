@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Camera, Bike, Activity, Heart, Image as ImageIcon, X } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
-import HackerText from './HackerText';
+import HackerText from '../ui/HackerText';
+import SwipeIndicator from '../ui/SwipeIndicator';
 
 const Hobbies = () => {
   const { t } = useLanguage();
@@ -79,18 +80,21 @@ const Hobbies = () => {
           })}
         </div>
       </div>
+      
+      <SwipeIndicator />
 
-      <motion.div layout className="grid grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 auto-rows-[150px] tablet:auto-rows-[200px] gap-2 tablet:gap-4">
-        <AnimatePresence>
+      {/* Horizontal Carousel Container */}
+      <motion.div layout className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 pt-4 px-2 -mx-2 hide-scrollbar">
+        <AnimatePresence mode="popLayout">
           {filteredImages.map((img, index) => (
             <motion.div
               layout
-              initial={{ opacity: 0, scale: 0.5, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.1 } }}
-              transition={{ type: "spring", stiffness: 200, damping: 15, delay: index * 0.03 }}
+              initial={{ opacity: 0, scale: 0.8, x: 50 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
+              transition={{ type: "spring", stiffness: 200, damping: 20, delay: index * 0.05 }}
               key={img.id}
-              className={`relative group rounded-2xl overflow-hidden cursor-pointer ${img.span} bg-gray-100 dark:bg-zinc-800`}
+              className={`relative group rounded-2xl overflow-hidden cursor-pointer flex-none w-[75vw] sm:w-[280px] laptop:w-[320px] h-[200px] sm:h-[250px] snap-center bg-gray-100 dark:bg-zinc-800`}
               onClick={() => setSelectedImage(img)}
             >
               <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.05} transitionSpeed={2000} className="w-full h-full">
@@ -110,13 +114,23 @@ const Hobbies = () => {
                   <span className="inline-block px-2 py-1 mb-2 text-xs font-medium bg-white/20 backdrop-blur-md text-white rounded-md uppercase tracking-wider">
                     {img.category}
                   </span>
-                  <h3 className="text-white font-bold text-lg">{img.title}</h3>
+                  <h3 className="text-white font-bold text-lg leading-tight">{img.title}</h3>
                 </div>
               </Tilt>
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
+      
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
 
       {/* Lightbox Modal */}
       {selectedImage && (
