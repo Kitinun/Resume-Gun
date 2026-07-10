@@ -11,7 +11,7 @@ const Experience = () => {
       company: t.experience.companies.MIS_SUT,
       period: "NOV 2025 - Present",
       location: "SUT, Nakhon Ratchasima",
-      image: "/image/company/sut.jpg",
+      image: "/image/company/sut.webp",
       skills: ["NextJS", "React", "NodeJS", "TypeScript", "Tailwind", "MySQL", "MSSQL", "Docker", "CI/CD"]
     },
     {
@@ -20,7 +20,7 @@ const Experience = () => {
       company: t.experience.companies.DHR_SUT,
       period: "JAN 2025 - OCT 2025",
       location: "SUT, Nakhon Ratchasima",
-      image: "/image/company/sut.jpg",
+      image: "/image/company/sut.webp",
       skills: ["NextJS", "React", "NodeJS", "TypeScript", "Tailwind", "MySQL", "MSSQL", "Docker", "CI/CD"]
     },
     {
@@ -29,7 +29,7 @@ const Experience = () => {
       company: t.experience.companies.FutureSkill,
       period: "AUG 2022 - 2024",
       location: "Bangkok",
-      image: "/image/company/futureskill.jpg",
+      image: "/image/company/futureskill.webp",
       skills: ["NextJS", "ReactJS", "Tailwind", "TypeScript", "GTM"]
     },
     {
@@ -38,7 +38,7 @@ const Experience = () => {
       company: t.experience.companies.ApplicationDD,
       period: "SEP 2021 - JUN 2022",
       location: "Nakhon Ratchasima",
-      image: "/image/company/appDD.jpg",
+      image: "/image/company/appDD.webp",
       skills: ["HTML/CSS", "JavaScript", "UX/UI Design", "Bootstrap", "Figma"]
     },
     {
@@ -47,7 +47,7 @@ const Experience = () => {
       company: t.experience.companies.MEMSG,
       period: "JUN 2021 - AUG 2021",
       location: "Nakhon Ratchasima",
-      image: "/image/company/ms_msg.png",
+      image: "/image/company/ms_msg.webp",
       skills: ["React Native", "JavaScript"]
     }
   ];
@@ -59,7 +59,7 @@ const Experience = () => {
       company: t.experience.companies.Uni,
       period: "2017 - 2020",
       location: "Khon Kaen",
-      image: "/image/company/มข.png"
+      image: "/image/company/มข.webp"
     },
     {
       type: "edu",
@@ -67,7 +67,7 @@ const Experience = () => {
       company: t.experience.companies.HighSchool,
       period: "2004 - 2016",
       location: "Nakhon Ratchasima",
-      image: "/image/company/มารีย์.png"
+      image: "/image/company/มารีย์.webp"
     }
   ];
 

@@ -79,31 +79,31 @@ const Projects = () => {
     {
       title: "COIN Class of Innovator",
       description: t.projects.descriptions.coin,
-      image: "/image/project/coin.jpg",
+      image: "/image/project/coin.webp",
       link: "https://coin.futureskill.co/"
     },
     {
       title: "Growth Academy",
       description: t.projects.descriptions.growth,
-      image: "/image/project/grow.jpg",
+      image: "/image/project/grow.webp",
       link: "https://growth.futureskill.co/"
     },
     {
       title: "ระบบลงทะเบียน มทส. (SUT Unireg)",
       description: t.projects.descriptions.unireg,
-      image: "/image/project/sut.png",
+      image: "/image/project/sut.webp",
       link: "https://unireg.sut.ac.th/th"
     },
     {
       title: "SUT Operational",
       description: t.projects.descriptions.operational,
-      image: "/image/project/sut.png",
+      image: "/image/project/sut.webp",
       link: "https://operational.sut.ac.th/"
     },
     {
       title: "SUT Internal Info Service",
       description: t.projects.descriptions.internal,
-      image: "/image/project/sut.png",
+      image: "/image/project/sut.webp",
       link: "#"
     },
   ];

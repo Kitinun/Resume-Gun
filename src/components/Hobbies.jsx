@@ -11,24 +11,24 @@ const Hobbies = () => {
 
   const images = [
     // Wedding
-    { id: 1, src: '/image/wedding/0Z9A1945.JPEG', category: 'wedding', title: t.hobbies.images.weddingDay, span: 'col-span-2 row-span-2' },
-    { id: 2, src: '/image/wedding/0Z9A1993.JPEG', category: 'wedding', title: t.hobbies.images.moments, span: 'col-span-1 row-span-1' },
-    { id: 3, src: '/image/wedding/0Z9A2372.JPEG', category: 'wedding', title: t.hobbies.images.celebration, span: 'col-span-1 row-span-2' },
-    { id: 4, src: '/image/wedding/0Z9A2392.JPEG', category: 'wedding', title: t.hobbies.images.smile, span: 'col-span-1 row-span-1' },
-    { id: 5, src: '/image/wedding/7V8A1956.JPEG', category: 'wedding', title: t.hobbies.images.family, span: 'col-span-2 row-span-1' },
-    { id: 6, src: '/image/wedding/7V8A2104.JPEG', category: 'wedding', title: t.hobbies.images.love, span: 'col-span-1 row-span-1' },
+    { id: 1, src: '/image/wedding/0Z9A1945.webp', category: 'wedding', title: t.hobbies.images.weddingDay, span: 'col-span-2 row-span-2' },
+    { id: 2, src: '/image/wedding/0Z9A1993.webp', category: 'wedding', title: t.hobbies.images.moments, span: 'col-span-1 row-span-1' },
+    { id: 3, src: '/image/wedding/0Z9A2372.webp', category: 'wedding', title: t.hobbies.images.celebration, span: 'col-span-1 row-span-2' },
+    { id: 4, src: '/image/wedding/0Z9A2392.webp', category: 'wedding', title: t.hobbies.images.smile, span: 'col-span-1 row-span-1' },
+    { id: 5, src: '/image/wedding/7V8A1956.webp', category: 'wedding', title: t.hobbies.images.family, span: 'col-span-2 row-span-1' },
+    { id: 6, src: '/image/wedding/7V8A2104.webp', category: 'wedding', title: t.hobbies.images.love, span: 'col-span-1 row-span-1' },
     
     // Cycling
-    { id: 7, src: '/image/hobby/Cycling/SIMPLESAMPLE-136.JPG', category: 'cycling', title: t.hobbies.images.morningRide, span: 'col-span-1 row-span-2' },
-    { id: 8, src: '/image/hobby/Cycling/SIMPLESAMPLE-194 2.JPG', category: 'cycling', title: t.hobbies.images.cyclingCrew, span: 'col-span-2 row-span-1' },
-    { id: 9, src: '/image/hobby/Cycling/SIMPLESAMPLE-203.JPG', category: 'cycling', title: t.hobbies.images.onTheRoad, span: 'col-span-1 row-span-1' },
-    { id: 10, src: '/image/hobby/Cycling/SIMPLESAMPLE-236 2.JPG', category: 'cycling', title: t.hobbies.images.nightRide, span: 'col-span-1 row-span-1' },
+    { id: 7, src: '/image/hobby/Cycling/SIMPLESAMPLE-136.webp', category: 'cycling', title: t.hobbies.images.morningRide, span: 'col-span-1 row-span-2' },
+    { id: 8, src: '/image/hobby/Cycling/SIMPLESAMPLE-194 2.webp', category: 'cycling', title: t.hobbies.images.cyclingCrew, span: 'col-span-2 row-span-1' },
+    { id: 9, src: '/image/hobby/Cycling/SIMPLESAMPLE-203.webp', category: 'cycling', title: t.hobbies.images.onTheRoad, span: 'col-span-1 row-span-1' },
+    { id: 10, src: '/image/hobby/Cycling/SIMPLESAMPLE-236 2.webp', category: 'cycling', title: t.hobbies.images.nightRide, span: 'col-span-1 row-span-1' },
 
     // Running
-    { id: 11, src: '/image/hobby/running/16482317-E237-475E-9E03-C405945C6FC3.JPG', category: 'running', title: t.hobbies.images.marathon, span: 'col-span-2 row-span-2' },
-    { id: 12, src: '/image/hobby/running/IMG_2446.jpg', category: 'running', title: t.hobbies.images.track, span: 'col-span-1 row-span-1' },
-    { id: 13, src: '/image/hobby/running/IMG_2937.JPG', category: 'running', title: t.hobbies.images.runner, span: 'col-span-1 row-span-1' },
-    { id: 14, src: '/image/hobby/running/IMG_4788.JPG', category: 'running', title: t.hobbies.images.finishLine, span: 'col-span-2 row-span-1' },
+    { id: 11, src: '/image/hobby/running/16482317-E237-475E-9E03-C405945C6FC3.webp', category: 'running', title: t.hobbies.images.marathon, span: 'col-span-2 row-span-2' },
+    { id: 12, src: '/image/hobby/running/IMG_2446.webp', category: 'running', title: t.hobbies.images.track, span: 'col-span-1 row-span-1' },
+    { id: 13, src: '/image/hobby/running/IMG_2937.webp', category: 'running', title: t.hobbies.images.runner, span: 'col-span-1 row-span-1' },
+    { id: 14, src: '/image/hobby/running/IMG_4788.webp', category: 'running', title: t.hobbies.images.finishLine, span: 'col-span-2 row-span-1' },
   ];
 
   const filters = [

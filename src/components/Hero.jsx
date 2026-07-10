@@ -88,7 +88,7 @@ const Hero = () => {
           {/* Main image container */}
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-zinc-900 shadow-2xl transition-transform duration-200 group-hover:scale-[1.03]">
             <img
-              src="/image/0Z9A1788.JPEG"
+              src="/image/0Z9A1788.webp"
               alt="Kitinun Khonson"
               className="w-full h-full object-cover object-[80%_25%] scale-[1.2]"
             />
