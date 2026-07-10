@@ -10,6 +10,8 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'framer-motion': ['framer-motion'],
+          'tsparticles': ['@tsparticles/engine', '@tsparticles/react', '@tsparticles/slim'],
+          'lucide': ['lucide-react']
         },
       },
     },
