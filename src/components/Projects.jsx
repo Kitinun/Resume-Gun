@@ -2,10 +2,10 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { useState } from "react";
+import HackerText from "./HackerText";
 
 const ProjectCard = ({ project }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -28,8 +28,6 @@ const ProjectCard = ({ project }) => {
         target="_blank"
         rel="noopener noreferrer"
         onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         className="group relative flex flex-col h-full bg-white dark:bg-zinc-900/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl dark:shadow-none border border-gray-100 dark:border-zinc-800 transition-all duration-200"
       >
         {/* Spotlight Effect */}
@@ -117,8 +115,10 @@ const Projects = () => {
       className="p-2 mt-10 laptop:mt-36 laptop:p-0" 
       id="projects"
     >
-      <h1 className="text-4xl font-bold mb-10">{t.projects.title}</h1>
-      <div className="grid grid-cols-1 gap-6 tablet:grid-cols-2 laptop:grid-cols-3">
+      <h1 className="text-4xl font-bold mb-10 font-mono">
+        <HackerText text={t.projects.title} />
+      </h1>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 laptop:grid-cols-2 xl:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
             key={index}

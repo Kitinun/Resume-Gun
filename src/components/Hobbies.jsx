@@ -3,6 +3,7 @@ import { Camera, Bike, Activity, Heart, Image as ImageIcon, X } from 'lucide-rea
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import HackerText from './HackerText';
 
 const Hobbies = () => {
   const { t } = useLanguage();
@@ -51,9 +52,9 @@ const Hobbies = () => {
     >
       <div className="flex flex-col tablet:flex-row tablet:items-end justify-between mb-10 gap-6">
         <div>
-          <h1 className="text-4xl font-bold flex items-center gap-3">
+          <h1 className="text-4xl font-bold flex items-center gap-3 font-mono">
             <Camera className="w-10 h-10 text-blue-600 dark:text-blue-400" />
-            {t.hobbies.title}
+            <HackerText text={t.hobbies.title} />
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-2 text-lg">{t.hobbies.subtitle}</p>
         </div>

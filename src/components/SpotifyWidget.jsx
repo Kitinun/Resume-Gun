@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SiSpotify } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
@@ -27,7 +27,7 @@ const SpotifyWidget = () => {
             setSong({ isPlaying: false });
           }
         }
-      } catch (e) {
+      } catch {
         if (import.meta.env.DEV) {
           setSong({
             isPlaying: true,

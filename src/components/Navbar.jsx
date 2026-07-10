@@ -1,9 +1,11 @@
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "../contexts/LanguageContext";
-import { X, Download } from "lucide-react";
+import { X, Download, Command } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Navbar = ({ isDark, toggleTheme }) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
@@ -23,26 +25,44 @@ const Navbar = ({ isDark, toggleTheme }) => {
         <h1 className="font-bold font-mono cursor-pointer text-2xl text-blue-600 dark:text-blue-400">&lt;Kitinun /&gt;</h1>
 
         {/* Desktop Menu */}
-        <div className="hidden tablet:flex items-center gap-2">
-          {navItems.map((item) => (
-            <a
-              key={item.key}
-              href={item.href || "#"}
-              onClick={(e) => {
-                if (item.isResumeModal) {
-                  e.preventDefault();
-                  setShowResumeModal(true);
-                }
-              }}
-              className="text-sm tablet:text-base p-1 laptop:p-2 m-1 laptop:m-1 rounded-lg flex items-center transition-all ease-out duration-300 hover:bg-slate-100 dark:hover:bg-zinc-800 hover:scale-105 active:scale-100 cursor-pointer"
-            >
-              {t.nav[item.key]}
-            </a>
+        <div className="hidden tablet:flex items-center gap-2" onMouseLeave={() => setHoveredIndex(null)}>
+          {navItems.map((item, index) => (
+            <div key={item.key} className="relative" onMouseEnter={() => setHoveredIndex(index)}>
+              {hoveredIndex === index && (
+                <motion.div
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-slate-100 dark:bg-zinc-800 rounded-lg -z-10"
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                />
+              )}
+              <a
+                href={item.href || "#"}
+                onClick={(e) => {
+                  if (item.isResumeModal) {
+                    e.preventDefault();
+                    setShowResumeModal(true);
+                  }
+                }}
+                className="text-sm tablet:text-base px-3 py-2 m-1 rounded-lg flex items-center transition-colors ease-out duration-200 hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 cursor-pointer z-10"
+              >
+                {t.nav[item.key]}
+              </a>
+            </div>
           ))}
           <div className="flex items-center gap-1 ml-4 border-l border-gray-200 dark:border-zinc-800 pl-4">
             <button
+              onClick={() => {
+                document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }));
+              }}
+              className="flex items-center gap-1 text-xs font-semibold px-2 py-1.5 rounded-md text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors border border-transparent hover:border-gray-200 dark:hover:border-zinc-700"
+              title="Command Palette"
+            >
+              <Command className="w-3 h-3" />
+              <span>K</span>
+            </button>
+            <button
               onClick={toggleLanguage}
-              className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+              className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors ml-1"
             >
               {language === 'en' ? 'TH' : 'EN'}
             </button>

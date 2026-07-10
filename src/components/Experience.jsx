@@ -1,5 +1,6 @@
 import { useLanguage } from "../contexts/LanguageContext";
 import { motion } from "framer-motion";
+import HackerText from "./HackerText";
 
 const Experience = () => {
   const { t } = useLanguage();
@@ -82,7 +83,9 @@ const Experience = () => {
       className="p-2 mt-10 laptop:mt-36 laptop:p-0" 
       id="experiences"
     >
-      <h1 className="text-4xl font-bold mb-10">{t.experience.title}</h1>
+      <h1 className="text-4xl font-bold mb-10 font-mono">
+        <HackerText text={t.experience.title} />
+      </h1>
       
       <div className="grid grid-cols-1 gap-6 laptop:grid-cols-2">
         {allItems.map((item, index) => (

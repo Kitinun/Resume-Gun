@@ -1,3 +1,4 @@
+/* eslint-env node */
 const client_id = process.env.VITE_SPOTIFY_CLIENT_ID || process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.VITE_SPOTIFY_CLIENT_SECRET || process.env.SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.VITE_SPOTIFY_REFRESH_TOKEN || process.env.SPOTIFY_REFRESH_TOKEN;

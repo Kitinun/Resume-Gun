@@ -4,6 +4,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 import useTheme from "../hooks/useTheme";
 import { Github, Music } from "lucide-react";
 import SpotifyWidget from "./SpotifyWidget";
+import HackerText from "./HackerText";
 
 const About = () => {
   const { t } = useLanguage();
@@ -17,7 +18,9 @@ const About = () => {
       className="p-2 mt-10 laptop:mt-16 laptop:p-0" 
       id="about"
     >
-      <h1 className="text-4xl tablet:mx-10 font-bold mb-8">{t.about.title}</h1>
+      <h1 className="text-4xl tablet:mx-10 font-bold mb-8 font-mono">
+        <HackerText text={t.about.title} />
+      </h1>
       
       <div className="w-full tablet:mx-10 laptop:w-4/5 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-2xl border border-gray-800">
         {/* Mac OS Window Header */}
@@ -95,12 +98,19 @@ const About = () => {
         </div>
       </div>
 
-      {/* Spotify Currently Playing */}
-      <div className="mt-16 w-full tablet:mx-10 laptop:w-4/5">
-        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Music className="w-6 h-6" /> Listening To
-        </h2>
-        <SpotifyWidget />
+      {/* Dashboard Widgets */}
+      <div className="mt-20 w-full flex flex-col items-center justify-center">
+        {/* Spotify Currently Playing */}
+        <div className="w-full max-w-sm flex flex-col items-center">
+          <h2 className="text-2xl font-bold mb-6 flex items-center justify-center gap-2 text-gray-800 dark:text-white">
+            <Music className="w-6 h-6 text-green-500" /> Listening To
+          </h2>
+          <div className="w-full relative group">
+            {/* Soft background glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
+            <SpotifyWidget />
+          </div>
+        </div>
       </div>
     </motion.div>
   );
