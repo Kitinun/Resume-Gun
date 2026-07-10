@@ -93,6 +93,8 @@ const Hero = () => {
               className="w-full h-full object-cover object-[80%_25%] scale-[1.2]"
               fetchPriority="high"
               loading="eager"
+              width="400"
+              height="400"
             />
           </div>
 
