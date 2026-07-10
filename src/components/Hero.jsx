@@ -24,7 +24,7 @@ const Hero = () => {
           {t.hero.greeting}
         </h1>
         <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight">
-          {t.hero.namePrefix} {t.hero.name}
+          {t.hero.namePrefix} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">{t.hero.name}</span>
         </h1>
         <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight text-blue-600 dark:text-blue-400">
           <Typewriter
@@ -40,7 +40,7 @@ const Hero = () => {
         <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight">
           {t.hero.location}
         </h1>
-        <div className="mt-6 laptop:mt-10 flex flex-wrap mob:flex-nowrap gap-4 px-2">
+        <div className="mt-6 laptop:mt-10 flex flex-wrap gap-4 px-2">
           {[
             { name: "Github", href: "https://github.com/Kitinun", icon: Github },
             { name: "GitLab", href: "https://gitlab.sut.ac.th/Kitinun.kh", icon: Gitlab },

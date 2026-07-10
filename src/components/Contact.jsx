@@ -12,8 +12,8 @@ const Contact = () => {
       className="mt-20 laptop:mt-32 border-t border-gray-200 dark:border-zinc-800 py-10" 
       id="contact"
     >
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-center md:text-left">
+      <div className="flex flex-col tablet:flex-row items-center justify-between gap-6">
+        <div className="text-center tablet:text-left">
           <h2 className="text-2xl font-bold mb-2">{t.contact.title}</h2>
           <a 
             href="https://mail.google.com/mail/?view=cm&fs=1&to=kitinun.khonson@gmail.com"

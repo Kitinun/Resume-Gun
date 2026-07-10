@@ -1,8 +1,13 @@
 import { useLanguage } from "../contexts/LanguageContext";
 import { motion } from "framer-motion";
+import { GitHubCalendar } from 'react-github-calendar';
+import useTheme from "../hooks/useTheme";
+import { Github, Music } from "lucide-react";
+import SpotifyWidget from "./SpotifyWidget";
 
 const About = () => {
   const { t } = useLanguage();
+  const { isDark } = useTheme();
   return (
     <motion.div 
       initial={{ opacity: 0, y: 50 }}
@@ -60,6 +65,30 @@ const About = () => {
             <div>{'}'};</div>
           </div>
         </div>
+      </div>
+
+      {/* GitHub Contributions Heatmap */}
+      <div className="mt-16 w-full tablet:mx-10 laptop:w-4/5">
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Github className="w-6 h-6" /> GitHub Contributions
+        </h2>
+        <div className="p-6 rounded-xl bg-white dark:bg-[#1e1e1e] shadow-xl border border-gray-100 dark:border-gray-800 overflow-x-auto flex justify-center">
+          <GitHubCalendar 
+            username="Kitinun" 
+            colorScheme={isDark ? "dark" : "light"}
+            fontSize={14}
+            blockSize={12}
+            blockMargin={4}
+          />
+        </div>
+      </div>
+
+      {/* Spotify Currently Playing */}
+      <div className="mt-16 w-full tablet:mx-10 laptop:w-4/5">
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Music className="w-6 h-6" /> Listening To
+        </h2>
+        <SpotifyWidget />
       </div>
     </motion.div>
   );
