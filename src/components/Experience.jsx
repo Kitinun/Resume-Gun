@@ -1,190 +1,114 @@
-import React, { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState("work"); // 'work' or 'education'
+  const { t } = useLanguage();
+  
+  const experiences = [
+    {
+      type: "work",
+      role: t.experience.roles.MIS_SUT,
+      company: t.experience.companies.MIS_SUT,
+      period: "NOV 2025 - Present",
+      location: "SUT, Nakhon Ratchasima",
+      skills: ["NextJS", "React", "NodeJS", "TypeScript", "Tailwind", "MySQL", "MSSQL", "Docker", "CI/CD"]
+    },
+    {
+      type: "work",
+      role: t.experience.roles.DHR_SUT,
+      company: t.experience.companies.DHR_SUT,
+      period: "JAN 2025 - OCT 2025",
+      location: "SUT, Nakhon Ratchasima",
+      skills: ["NextJS", "React", "NodeJS", "TypeScript", "Tailwind", "MySQL", "MSSQL", "Docker", "CI/CD"]
+    },
+    {
+      type: "work",
+      role: t.experience.roles.FutureSkill,
+      company: t.experience.companies.FutureSkill,
+      period: "AUG 2022 - 2024",
+      location: "Bangkok",
+      skills: ["NextJS", "ReactJS", "Tailwind", "TypeScript", "GTM"]
+    },
+    {
+      type: "work",
+      role: t.experience.roles.ApplicationDD,
+      company: t.experience.companies.ApplicationDD,
+      period: "SEP 2021 - JUN 2022",
+      location: "Nakhon Ratchasima",
+      skills: ["HTML/CSS", "JavaScript", "UX/UI Design", "Bootstrap", "Figma"]
+    },
+    {
+      type: "work",
+      role: t.experience.roles.MEMSG,
+      company: t.experience.companies.MEMSG,
+      period: "JUN 2021 - AUG 2021",
+      location: "Nakhon Ratchasima",
+      skills: ["React Native", "JavaScript"]
+    }
+  ];
 
-  const experiences = {
-    work: [
-      {
-        role: "Senior Frontend Developer",
-        company: "Tech Company",
-        period: "2022 - Present",
-        location: "Bangkok, Thailand",
-        description: [
-          "Led frontend development team of 5 developers",
-          "Implemented new React.js architecture reducing load time by 40%",
-          "Developed responsive web applications using React.js and TypeScript",
-        ],
-        tech: ["React", "TypeScript", "Redux", "Tailwind CSS"],
-        color: "blue",
-      },
-      {
-        role: "Frontend Developer",
-        company: "Digital Agency",
-        period: "2020 - 2022",
-        location: "Bangkok, Thailand",
-        description: [
-          "Built 20+ client websites using modern JavaScript frameworks",
-          "Optimized website performance and SEO",
-          "Collaborated with UI/UX designers to implement responsive designs",
-        ],
-        tech: ["JavaScript", "React", "SCSS", "Git"],
-        color: "red",
-      },
-      {
-        role: "Junior Web Developer",
-        company: "Startup Company",
-        period: "2019 - 2020",
-        location: "Bangkok, Thailand",
-        description: [
-          "Developed and maintained company website",
-          "Created interactive UI components",
-          "Worked with REST APIs and database integration",
-        ],
-        tech: ["HTML", "CSS", "JavaScript", "PHP"],
-        color: "indigo",
-      },
-    ],
-    education: [
-      {
-        institution: "University Name",
-        degree: "Bachelor of Computer Science",
-        period: "2015 - 2019",
-        location: "Bangkok, Thailand",
-        achievements: [
-          "Graduated with First Class Honors",
-          "Led University Programming Club",
-          "Won Best Project Award for Final Year Project",
-        ],
-        relevantCourses: ["Web Development", "Algorithms", "Database Systems"],
-        color: "green",
-      },
-    ],
-  };
+  const education = [
+    {
+      type: "edu",
+      role: t.experience.roles.Uni,
+      company: t.experience.companies.Uni,
+      period: "2017 - 2020",
+      location: "Khon Kaen"
+    },
+    {
+      type: "edu",
+      role: t.experience.roles.HighSchool,
+      company: t.experience.companies.HighSchool,
+      period: "2004 - 2016",
+      location: "Nakhon Ratchasima"
+    }
+  ];
+
+  const allItems = [...experiences, ...education];
 
   return (
-    <section
-      id="experience"
-      className="py-20 bg-gradient-to-br from-blue-50 to-red-50"
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6 }}
+      className="p-2 mt-10 laptop:mt-36 laptop:p-0" 
+      id="experiences"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">
-          Experience & Education
-        </h2>
-
-        {/* Tab Switcher */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-full shadow-md p-1">
-            <button
-              onClick={() => setActiveTab("work")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all 
-                ${
-                  activeTab === "work"
-                    ? "bg-blue-900 text-white shadow"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-            >
-              Work Experience
-            </button>
-            <button
-              onClick={() => setActiveTab("education")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all 
-                ${
-                  activeTab === "education"
-                    ? "bg-blue-900 text-white shadow"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-            >
-              Education
-            </button>
-          </div>
-        </div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gray-200"></div>
-
-          {/* Experience Cards */}
-          <div className="space-y-12">
-            {experiences[activeTab].map((item, index) => (
-              <div
-                key={index}
-                className={`relative ${
-                  index % 2 === 0 ? "md:pr-12" : "md:pl-12 md:ml-auto"
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div
-                  className={`absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-${item.color}-600 border-4 border-white shadow-sm`}
-                ></div>
-
-                {/* Content Card */}
-                <div
-                  className={`ml-8 md:ml-0 md:w-1/2 bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow
-                  ${index % 2 === 0 ? "md:mr-12" : ""}`}
-                >
-                  <div className="flex flex-wrap items-start justify-between mb-4">
-                    <div>
-                      <h3
-                        className={`text-xl font-bold text-${item.color}-900`}
-                      >
-                        {item.role || item.institution}
-                      </h3>
-                      <p className={`text-${item.color}-600 font-medium`}>
-                        {item.company || item.degree}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm font-medium text-gray-600">
-                        {item.period}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {item.location}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description/Achievements */}
-                  <ul className="space-y-2 mb-4">
-                    {(item.description || item.achievements).map((point, i) => (
-                      <li key={i} className="flex items-start">
-                        <svg
-                          className={`w-5 h-5 mr-2 text-${item.color}-500 mt-1 flex-shrink-0`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                        <span className="text-gray-600">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Technologies/Courses */}
-                  <div className="flex flex-wrap gap-2">
-                    {(item.tech || item.relevantCourses).map((tech, i) => (
-                      <span
-                        key={i}
-                        className={`px-3 py-1 bg-${item.color}-100 text-${item.color}-700 rounded-full text-sm`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+      <h1 className="text-4xl font-bold mb-10">{t.experience.title}</h1>
+      
+      <div className="grid grid-cols-1 gap-6 laptop:grid-cols-2">
+        {allItems.map((item, index) => (
+          <div
+            key={index}
+            className="w-full h-full flex flex-col p-6 bg-white dark:bg-zinc-800/50 border border-gray-100 dark:border-zinc-800 rounded-2xl transition-all ease-out duration-300 hover:shadow-lg hover:-translate-y-1"
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 flex-grow">
+              <div className="flex-1">
+                <h1 className="text-xl font-semibold leading-tight mb-1">{item.role}</h1>
+                <h2 className="text-base text-blue-600 dark:text-blue-400 font-medium">{item.company}</h2>
               </div>
-            ))}
+              <div className="sm:text-right shrink-0">
+                <span className="inline-block px-3 py-1 bg-gray-100 dark:bg-zinc-700 rounded-full text-xs font-medium">
+                  {item.period}
+                </span>
+                <p className="text-xs opacity-50 mt-2">{item.location}</p>
+              </div>
+            </div>
+            
+            {item.skills && (
+              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
+                {item.skills.map(skill => (
+                  <span key={skill} className="px-2 py-1 text-xs font-medium bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 rounded-md">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </motion.div>
   );
 };
 
