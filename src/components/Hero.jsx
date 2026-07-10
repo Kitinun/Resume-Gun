@@ -91,6 +91,8 @@ const Hero = () => {
               src="/image/0Z9A1788.webp"
               alt="Kitinun Khonson"
               className="w-full h-full object-cover object-[80%_25%] scale-[1.2]"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
 
