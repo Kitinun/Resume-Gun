@@ -7,10 +7,12 @@ import useTheme from "./hooks/useTheme";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 import BootSequence from "./components/widgets/BootSequence";
+import CommandPalette from "./components/ui/CommandPalette";
 import EasterEgg from "./components/widgets/EasterEgg";
 import SpotifyWidget from "./components/widgets/SpotifyWidget";
-
-import CommandPalette from "./components/ui/CommandPalette";
+import MiniTerminal from "./components/widgets/MiniTerminal";
+import PageLoadTimer from "./components/widgets/PageLoadTimer";
+import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/widgets/ParticlesBackground";
 import NoiseOverlay from "./components/ui/NoiseOverlay";
 import About from "./components/sections/About";
@@ -20,6 +22,8 @@ import Projects from "./components/sections/Projects";
 import Lifestyle from "./components/sections/Lifestyle";
 import Hobbies from "./components/sections/Hobbies";
 import Contact from "./components/sections/Contact";
+import ScrollToTop from "./components/ui/ScrollToTop";
+import KeyboardShortcuts from "./components/ui/KeyboardShortcuts";
 
 const App = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -36,6 +40,10 @@ const App = () => {
       <BootSequence />
       <EasterEgg />
       <SpotifyWidget />
+      <MiniTerminal />
+      <PageLoadTimer />
+      <ScrollToTop />
+      <KeyboardShortcuts />
       <CustomCursor />
       <motion.div
         initial={{ opacity: 0 }}

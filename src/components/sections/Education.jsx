@@ -60,7 +60,7 @@ const Education = () => {
                 <div className="flex items-start gap-4">
                   {item.image && (
                     <div className="w-12 h-12 shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-md flex items-center justify-center p-1.5 group-hover:scale-110 transition-transform duration-500">
-                      <img src={item.image} alt={item.company} className="w-full h-full object-contain rounded-xl" />
+                      <img src={item.image} alt={item.company} className="w-full h-full object-contain rounded-xl" loading="lazy" decoding="async" />
                     </div>
                   )}
                   <div>

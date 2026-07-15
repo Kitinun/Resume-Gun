@@ -6,6 +6,8 @@ import { Typewriter } from "react-simple-typewriter";
 import Marquee from "react-fast-marquee";
 import MagneticButton from "../ui/MagneticButton";
 import StaggeredText from "../ui/StaggeredText";
+import CodeSnippet from "../ui/CodeSnippet";
+import StatsCounter from "../ui/StatsCounter";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -75,6 +77,9 @@ const Hero = () => {
             );
           })}
         </div>
+
+        {/* Floating Code Snippet for Programmer Aesthetics */}
+        <CodeSnippet />
       </motion.div>
 
       {/* Modern Trendy Profile Picture Container */}
@@ -181,6 +186,9 @@ const Hero = () => {
           </Marquee>
         </div>
       </motion.div>
+
+      {/* Stats Counter */}
+      <StatsCounter />
     </div>
   );
 };

@@ -134,7 +134,7 @@ const Experience = () => {
       <SwipeIndicator />
       
       {/* Horizontal Carousel Container */}
-      <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 pt-4 px-2 -mx-2 hide-scrollbar">
+      <div className="flex items-stretch overflow-x-auto snap-x snap-mandatory gap-6 pb-12 pt-4 px-2 -mx-2 hide-scrollbar">
         {experiences.map((item, index) => (
           <motion.div 
             key={`work-${index}`}
@@ -142,7 +142,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex-none w-[85vw] sm:w-[350px] laptop:w-[400px] snap-center relative group"
+            className="flex-none w-[85vw] sm:w-[350px] laptop:w-[400px] snap-center relative group self-stretch"
           >
             <div className="relative p-6 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl border border-gray-200/50 dark:border-zinc-700/50 rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 group-hover:-translate-y-2 flex flex-col h-full">
               
@@ -151,7 +151,7 @@ const Experience = () => {
                 <div className="flex items-start gap-4">
                   {item.image && (
                     <div className="w-12 h-12 shrink-0 rounded-2xl overflow-hidden bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-md flex items-center justify-center p-1.5 group-hover:scale-110 transition-transform duration-500">
-                      <img src={item.image} alt={item.company} className="w-full h-full object-contain rounded-xl" />
+                      <img src={item.image} alt={item.company} className="w-full h-full object-contain rounded-xl" loading="lazy" decoding="async" />
                     </div>
                   )}
                   <div>
@@ -162,8 +162,8 @@ const Experience = () => {
               </div>
               
               {/* Period & Location */}
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="inline-flex items-center px-2.5 py-1 bg-blue-50/50 dark:bg-blue-900/20 rounded-full text-[11px] font-bold text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/50">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-flex items-center px-2.5 py-1 bg-blue-50/50 dark:bg-blue-900/20 rounded-full text-[11px] font-bold text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/50 whitespace-nowrap shrink-0">
                   {item.period}
                   {calculateDurationData(item.period) && (
                     <span className="ml-1.5 pl-1.5 border-l border-blue-200 dark:border-blue-700 opacity-80">
@@ -171,12 +171,12 @@ const Experience = () => {
                     </span>
                   )}
                 </span>
-                <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">{item.location}</span>
+                <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest whitespace-nowrap truncate">{item.location}</span>
               </div>
               
               {/* Skills */}
               {item.skills && (
-                <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-800/50">
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-zinc-800/50">
                   {item.skills.map(skill => (
                     <span key={skill} className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-gray-100/80 dark:bg-zinc-800/80 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-700 rounded-md hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-colors cursor-default">
                       {skill}

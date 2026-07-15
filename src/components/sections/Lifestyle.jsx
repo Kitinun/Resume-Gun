@@ -26,7 +26,7 @@ const Lifestyle = () => {
           
           <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 text-white text-center">
             <div className="w-20 h-20 mb-3 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-               <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United Logo" className="w-full h-full object-contain" />
+               <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg" alt="Manchester United Logo" className="w-full h-full object-contain" loading="lazy" decoding="async" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black uppercase tracking-widest leading-tight text-[#FBE122] drop-shadow-md">
               Glory Glory<br/><span className="text-white">Man United</span>
@@ -39,7 +39,7 @@ const Lifestyle = () => {
         <div className="col-span-1 relative group h-[200px] sm:h-[220px] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 bg-zinc-900">
           {/* Background image from hobbies */}
           <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700">
-            <img src="/image/hobby/running/IMG_4788.webp" alt="Running" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+            <img src="/image/hobby/running/IMG_4788.webp" alt="Running" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async" />
           </div>
           {/* Overlay Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
