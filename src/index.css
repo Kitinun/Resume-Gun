@@ -43,6 +43,40 @@
     background: radial-gradient(circle, rgba(100, 32, 70, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
+.gradient-circle-3 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    top: 20%;
+    right: 10%;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(50px);
+    animation: float-diagonal 18s infinite ease-in-out alternate;
+    will-change: transform;
+}
+.dark .gradient-circle-3 {
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.gradient-circle-4 {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: 20%;
+    left: 10%;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    animation: float-circular 22s infinite linear;
+    will-change: transform;
+}
+.dark .gradient-circle-4 {
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
 /* Profile picture animated glow */
 .profile-glow {
   background: conic-gradient(
@@ -85,6 +119,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5); /* gray-400 */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.8); /* gray-500 */
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(82, 82, 91, 0.5); /* zinc-600 */
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(113, 113, 122, 0.8); /* zinc-500 */
+}
+
 @keyframes zoomIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
@@ -113,4 +169,14 @@ html {
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(30px) rotate(-180deg); }
   100% { transform: translateY(0px) rotate(-360deg); }
+}
+
+@keyframes float-diagonal {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-100px, 150px) scale(1.2); }
+}
+
+@keyframes float-circular {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
 }

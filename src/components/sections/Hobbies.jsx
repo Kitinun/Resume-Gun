@@ -121,16 +121,6 @@ const Hobbies = () => {
           ))}
         </AnimatePresence>
       </motion.div>
-      
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
 
       {/* Lightbox Modal */}
       {selectedImage && (

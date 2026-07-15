@@ -12,6 +12,7 @@ import SpotifyWidget from "./components/widgets/SpotifyWidget";
 
 import CommandPalette from "./components/ui/CommandPalette";
 import ParticlesBackground from "./components/widgets/ParticlesBackground";
+import NoiseOverlay from "./components/ui/NoiseOverlay";
 import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import Education from "./components/sections/Education";
@@ -44,9 +45,12 @@ const App = () => {
         style={{ scaleX }}
       />
       <div className="relative overflow-clip min-h-screen bg-white dark:bg-zinc-950">
+          <NoiseOverlay />
           <ParticlesBackground />
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle"></motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle-bottom"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.4 }} className="gradient-circle-3"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.6 }} className="gradient-circle-4"></motion.div>
         <div className="container mx-auto mb-10 px-4 max-w-screen-xl relative z-10">
           <Navbar isDark={isDark} toggleTheme={toggleTheme} />
           <main className="pt-24">

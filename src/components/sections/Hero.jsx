@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import Marquee from "react-fast-marquee";
 import MagneticButton from "../ui/MagneticButton";
+import StaggeredText from "../ui/StaggeredText";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -26,12 +27,13 @@ const Hero = () => {
         transition={{ duration: 0.4 }}
         className="mt-5 w-full laptop:w-3/5"
       >
-        <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl tablet:p-2 font-bold leading-tight">
-          {t.hero.greeting}
-        </h1>
-        <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight">
-          {t.hero.namePrefix} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">{t.hero.name}</span>
-        </h1>
+        <div className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl tablet:p-2 font-bold leading-tight">
+          <StaggeredText text={t.hero.greeting} />
+        </div>
+        <div className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight flex flex-wrap gap-2">
+          <StaggeredText text={t.hero.namePrefix} delay={0.2} /> 
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">{t.hero.name}</span>
+        </div>
         <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight text-blue-600 dark:text-blue-400">
           <Typewriter
             words={[t.hero.role, "Frontend Specialist", "Backend Developer", "React Enthusiast"]}
@@ -146,7 +148,7 @@ const Hero = () => {
                 src="/image/0Z9A1788.webp"
                 alt="Kitinun Khonson"
                 className="w-full h-full object-cover object-[80%_25%] scale-[1.1] group-hover:scale-105 transition-transform duration-700 ease-out"
-                fetchPriority="high"
+                fetchpriority="high"
                 loading="eager"
                 width="400"
                 height="400"

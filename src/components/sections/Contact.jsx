@@ -1,9 +1,47 @@
 import { useLanguage } from "../../contexts/LanguageContext";
 import { motion } from "framer-motion";
 import { Github, Gitlab, Linkedin, Facebook } from "lucide-react";
+import confetti from "canvas-confetti";
+import { useState } from "react";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    
+    // Fire confetti
+    const duration = 2000;
+    const end = Date.now() + duration;
+
+    const frame = () => {
+      confetti({
+        particleCount: 4,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#3b82f6', '#8b5cf6', '#ec4899']
+      });
+      confetti({
+        particleCount: 4,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#3b82f6', '#8b5cf6', '#ec4899']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+    frame();
+
+    // Copy to clipboard
+    navigator.clipboard.writeText("kitinun.khonson@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   return (
     <motion.footer 
       initial={{ opacity: 0, y: 50 }}
@@ -16,14 +54,17 @@ const Contact = () => {
       <div className="flex flex-col tablet:flex-row items-center justify-between gap-6">
         <div className="text-center tablet:text-left">
           <h2 className="text-2xl font-bold mb-2">{t.contact.title}</h2>
-          <a 
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=kitinun.khonson@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          <button 
+            onClick={handleEmailClick}
+            className="text-lg text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium relative group"
           >
             kitinun.khonson@gmail.com
-          </a>
+            {copied && (
+              <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-md shadow-lg whitespace-nowrap animate-bounce">
+                Copied! 🎉
+              </span>
+            )}
+          </button>
         </div>
         
         <div className="flex items-center gap-4">

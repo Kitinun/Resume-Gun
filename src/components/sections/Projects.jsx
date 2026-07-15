@@ -8,11 +8,16 @@ import SwipeIndicator from "../ui/SwipeIndicator";
 const ProjectCard = ({ project }) => {
   return (
     <Tilt 
-      tiltMaxAngleX={5} 
-      tiltMaxAngleY={5} 
+      tiltMaxAngleX={15} 
+      tiltMaxAngleY={15} 
       scale={1.02} 
       transitionSpeed={1000} 
       className="h-full"
+      glareEnable={true}
+      glareMaxOpacity={0.3}
+      glareColor="white"
+      glarePosition="all"
+      glareBorderRadius="2rem"
     >
       <a
         href={project.link}
