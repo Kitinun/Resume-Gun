@@ -60,7 +60,7 @@ const SpotifyWidget = () => {
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.5, delay: 2 }} 
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 p-2.5 pr-5 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/50 dark:border-zinc-700/50 rounded-full shadow-2xl hover:scale-105 hover:shadow-[#1DB954]/20 transition-all duration-300 group cursor-pointer"
+      className="fixed bottom-6 left-6 z-50 flex items-center gap-3 p-2.5 pr-5 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/50 dark:border-zinc-700/50 rounded-full shadow-2xl hover:scale-105 hover:shadow-[#1DB954]/20 transition-all duration-300 group cursor-pointer"
       onClick={() => song?.songUrl && window.open(song.songUrl, '_blank')}
     >
       {/* Background glow if playing */}
