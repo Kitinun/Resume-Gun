@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { X, Download, Command } from "lucide-react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 const Navbar = ({ isDark, toggleTheme }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);

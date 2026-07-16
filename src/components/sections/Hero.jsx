@@ -1,7 +1,7 @@
 import { useLanguage } from "../../contexts/LanguageContext";
 import { Github, Gitlab, Linkedin, Facebook, Code2, Sparkles } from "lucide-react";
 import { SiSpotify } from "react-icons/si";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import Marquee from "react-fast-marquee";
 import MagneticButton from "../ui/MagneticButton";

@@ -1,5 +1,5 @@
 import { useLanguage } from "../../contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { useState } from "react";
 import HackerText from "../ui/HackerText";

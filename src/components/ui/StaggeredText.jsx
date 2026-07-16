@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 const StaggeredText = ({ text, className, delay = 0 }) => {
   // Split text into words, then into characters while keeping spaces

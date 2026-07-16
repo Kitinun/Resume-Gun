@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { m as motion, useScroll, useSpring } from "framer-motion";
 import CustomCursor from "./components/ui/CustomCursor";
 import Navbar from "./components/ui/Navbar";
 import Hero from "./components/sections/Hero";
