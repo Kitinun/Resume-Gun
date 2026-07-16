@@ -15,13 +15,15 @@ import PageLoadTimer from "./components/widgets/PageLoadTimer";
 import { useEffect, useState } from "react";
 import ParticlesBackground from "./components/widgets/ParticlesBackground";
 import NoiseOverlay from "./components/ui/NoiseOverlay";
-import About from "./components/sections/About";
-import Experience from "./components/sections/Experience";
-import Education from "./components/sections/Education";
-import Projects from "./components/sections/Projects";
-import Lifestyle from "./components/sections/Lifestyle";
-import Hobbies from "./components/sections/Hobbies";
-import Contact from "./components/sections/Contact";
+// Lazy loaded sections for better initial performance
+const About = lazy(() => import("./components/sections/About"));
+const Experience = lazy(() => import("./components/sections/Experience"));
+const Education = lazy(() => import("./components/sections/Education"));
+const Projects = lazy(() => import("./components/sections/Projects"));
+const Lifestyle = lazy(() => import("./components/sections/Lifestyle"));
+const Hobbies = lazy(() => import("./components/sections/Hobbies"));
+const Contact = lazy(() => import("./components/sections/Contact"));
+
 import ScrollToTop from "./components/ui/ScrollToTop";
 import KeyboardShortcuts from "./components/ui/KeyboardShortcuts";
 
@@ -63,6 +65,7 @@ const App = () => {
           <Navbar isDark={isDark} toggleTheme={toggleTheme} />
           <main className="pt-24">
             <Hero />
+            <Suspense fallback={<div className="h-screen w-full flex items-center justify-center"><div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div></div>}>
               <About />
               <Experience />
               <Education />
@@ -70,6 +73,7 @@ const App = () => {
               <Lifestyle />
               <Hobbies />
               <Contact />
+            </Suspense>
           </main>
         </div>
       </div>

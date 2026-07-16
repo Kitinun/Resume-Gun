@@ -32,9 +32,9 @@ const Hero = () => {
         <div className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl tablet:p-2 font-bold leading-tight">
           <StaggeredText text={t.hero.greeting} />
         </div>
-        <div className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight flex flex-wrap gap-2">
+        <div className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight flex flex-wrap gap-2 items-baseline">
           <StaggeredText text={t.hero.namePrefix} delay={0.2} /> 
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">{t.hero.name}</span>
+          <span className="inline-block pt-2 pb-1 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient-x">{t.hero.name}</span>
         </div>
         <h1 className="w-full p-1 text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-5xl font-bold tablet:p-2 leading-tight text-blue-600 dark:text-blue-400">
           <Typewriter

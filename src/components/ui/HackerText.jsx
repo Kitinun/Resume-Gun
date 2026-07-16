@@ -13,13 +13,16 @@ const HackerText = ({ text, className = "" }) => {
 
     let iteration = 0;
 
+    // Group Thai graphemes correctly
+    const segmenter = new Intl.Segmenter(['th', 'en'], { granularity: "grapheme" });
+    const characters = Array.from(segmenter.segment(text)).map(s => s.segment);
+
     const interval = setInterval(() => {
       setDisplayText(() =>
-        text
-          .split("")
+        characters
           .map((letter, index) => {
             if (index < iteration) {
-              return text[index];
+              return characters[index];
             }
             if (letter === " ") return " "; // Preserve spaces
             return LETTERS[Math.floor(Math.random() * LETTERS.length)];
@@ -27,7 +30,7 @@ const HackerText = ({ text, className = "" }) => {
           .join("")
       );
 
-      if (iteration >= text.length) {
+      if (iteration >= characters.length) {
         clearInterval(interval);
       }
 
