@@ -7,6 +7,8 @@ const MiniTerminal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [input, setInput] = useState('');
+  const [fps, setFps] = useState(0);
+  const [memory, setMemory] = useState(0);
   const [history, setHistory] = useState([
     { type: 'system', text: 'Welcome to KitinunOS v1.0.0' },
     { type: 'system', text: 'Type "help" to see available commands.' }
@@ -14,6 +16,29 @@ const MiniTerminal = () => {
   const inputRef = useRef(null);
   const scrollRef = useRef(null);
   const { t } = useLanguage();
+
+  useEffect(() => {
+    let frameCount = 0;
+    let lastTime = performance.now();
+    let animationFrameId;
+
+    const measureFPS = (time) => {
+      frameCount++;
+      const delta = time - lastTime;
+      if (delta >= 1000) {
+        setFps(Math.round((frameCount * 1000) / delta));
+        frameCount = 0;
+        lastTime = time;
+        if (performance.memory) {
+          setMemory(Math.round(performance.memory.usedJSHeapSize / 1048576));
+        }
+      }
+      animationFrameId = requestAnimationFrame(measureFPS);
+    };
+
+    animationFrameId = requestAnimationFrame(measureFPS);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
 
   const commands = {
     help: 'Available commands: help, skills, about, contact, clear, whoami',
@@ -100,11 +125,19 @@ const MiniTerminal = () => {
               className="h-10 bg-zinc-900/80 border-b border-zinc-800 flex items-center justify-between px-4 cursor-pointer select-none"
               onClick={() => setIsMinimized(!isMinimized)}
             >
-              <div className="flex items-center gap-2 text-zinc-400 text-xs font-mono">
-                <Terminal className="w-4 h-4 text-green-500" />
-                <span>guest@kitinun:~</span>
-              </div>
-              <div className="flex items-center gap-3 text-zinc-500">
+              <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onClick={() => setIsOpen(false)} />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500 cursor-pointer" onClick={() => setIsMinimized(!isMinimized)} />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="text-xs font-mono text-zinc-400 flex items-center gap-3">
+                  <span>guest@kitinun</span>
+                  <div className="flex gap-2 border-l border-zinc-700 pl-3">
+                    <span className="text-green-400">FPS: {fps}</span>
+                    <span className="text-blue-400">MEM: {memory ? memory + 'MB' : 'N/A'}</span>
+                  </div>
+                </div>
+                <div className="flex gap-2 text-zinc-500">
                 <button 
                   onClick={(e) => { e.stopPropagation(); setIsMinimized(!isMinimized); }}
                   className="hover:text-white transition-colors"

@@ -140,7 +140,7 @@ const Projects = () => {
         ))}
       </div>
       
-      <style jsx>{`
+      <style>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }

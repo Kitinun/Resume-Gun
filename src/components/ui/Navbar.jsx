@@ -69,6 +69,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
             </button>
             <button
               onClick={toggleLanguage}
+              aria-label="Toggle language"
               className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors ml-1"
             >
               {language === 'en' ? 'EN' : 'TH'}
@@ -81,6 +82,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
         <div className="tablet:hidden flex items-center gap-2">
           <button
             onClick={toggleLanguage}
+            aria-label="Toggle language"
             className="font-bold text-sm px-2 py-1 rounded hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
           >
             {language === 'en' ? 'EN' : 'TH'}
@@ -88,7 +90,8 @@ const Navbar = ({ isDark, toggleTheme }) => {
           <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+            aria-label="Toggle menu"
+            className="p-2 text-gray-600 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-zinc-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <svg
               className="w-6 h-6"

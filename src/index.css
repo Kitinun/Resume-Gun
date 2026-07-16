@@ -26,6 +26,7 @@
     filter: blur(40px);
     animation: float 20s infinite linear;
     will-change: transform;
+    transform: translateZ(0);
 }
 .dark .gradient-circle {
     background: radial-gradient(circle, rgba(46, 73, 117, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
@@ -131,6 +132,23 @@ html {
 }
 ::-webkit-scrollbar-track {
   background: transparent;
+}
+/* Boss-Tier: CSS Houdini Paint Background */
+.houdini-bg {
+  background-image: paint(dynamic-gradient);
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Boss-Tier: Content Visibility for instant rendering */
+#about, #experience, #education, #projects, #lifestyle, #hobbies, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(156, 163, 175, 0.5); /* gray-400 */

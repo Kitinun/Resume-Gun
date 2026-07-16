@@ -43,25 +43,15 @@ const StaggeredText = ({ text, className, delay = 0 }) => {
       viewport={{ once: true }}
       className={className}
     >
-      {words.map((word, index) => {
-        // Use Intl.Segmenter to correctly group Thai graphemes (consonant + vowel + tone)
-        const segmenter = new Intl.Segmenter(['th', 'en'], { granularity: "grapheme" });
-        const characters = Array.from(segmenter.segment(word)).map(s => s.segment);
-        
-        return (
-          <span key={index} style={{ display: "inline-block" }}>
-            {characters.map((char, charIndex) => (
-              <motion.span
-                variants={child}
-                key={charIndex}
-                style={{ display: "inline-block" }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
-        );
-      })}
+      {words.map((word, index) => (
+        <motion.span
+          variants={child}
+          key={index}
+          style={{ display: "inline-block" }}
+        >
+          {word}
+        </motion.span>
+      ))}
     </motion.div>
   );
 };

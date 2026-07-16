@@ -1,17 +1,52 @@
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
+  const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
+    const checkCapabilities = async () => {
+      // 1. Reduced Motion
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+      
+      // 2. Slow Network
+      if (navigator.connection) {
+        const { effectiveType, saveData } = navigator.connection;
+        if (saveData || effectiveType === 'slow-2g' || effectiveType === '2g' || effectiveType === '3g') return false;
+      }
+
+      // 3. Low-end CPU (Boss-Tier)
+      if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) return false;
+
+      // 4. Low Battery (Boss-Tier)
+      try {
+        if ('getBattery' in navigator) {
+          const battery = await navigator.getBattery();
+          if (battery.level < 0.2 && !battery.charging) return false;
+        }
+      } catch (e) {
+        // Ignore battery API errors
+      }
+
+      return true;
+    };
+
+    checkCapabilities().then(shouldRun => {
+      if (!shouldRun) {
+        setShouldRender(false);
+      } else {
+        initParticlesEngine(async (engine) => {
+          await loadSlim(engine);
+        }).then(() => {
+          setInit(true);
+        });
+      }
     });
   }, []);
+
+  if (!shouldRender) return null;
 
   const options = useMemo(
     () => ({
@@ -102,4 +137,4 @@ const ParticlesBackground = () => {
   return null;
 };
 
-export default ParticlesBackground;
+export default React.memo(ParticlesBackground);

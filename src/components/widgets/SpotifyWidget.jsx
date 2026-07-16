@@ -20,7 +20,7 @@ const SpotifyWidget = () => {
               isPlaying: true,
               title: "Pink Venom (Local Test)",
               artist: "BLACKPINK",
-              albumImageUrl: "https://i.scdn.co/image/ab67616d0000b27351df779fdfd7543886c9fc62",
+              albumImageUrl: "/favicon.png",
               songUrl: "https://open.spotify.com/track/4sMcju2W0qgN5Jq9hV9jY0"
             });
           } else {
@@ -33,7 +33,7 @@ const SpotifyWidget = () => {
             isPlaying: true,
             title: "Pink Venom (Local Test)",
             artist: "BLACKPINK",
-            albumImageUrl: "https://i.scdn.co/image/ab67616d0000b27351df779fdfd7543886c9fc62",
+            albumImageUrl: "/favicon.png",
             songUrl: "https://open.spotify.com/track/4sMcju2W0qgN5Jq9hV9jY0"
           });
         } else {
