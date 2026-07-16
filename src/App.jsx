@@ -66,13 +66,15 @@ const App = () => {
       />
       <div className="relative overflow-clip min-h-screen bg-white dark:bg-zinc-950 houdini-bg">
           <NoiseOverlay />
-          <Suspense fallback={null}>
-            <ParticlesBackground />
-          </Suspense>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle-bottom"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.4 }} className="gradient-circle-3"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.6 }} className="gradient-circle-4"></motion.div>
+          <DeferRender>
+            <Suspense fallback={null}>
+              <ParticlesBackground />
+            </Suspense>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle"></motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="gradient-circle-bottom"></motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.4 }} className="gradient-circle-3"></motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.6 }} className="gradient-circle-4"></motion.div>
+          </DeferRender>
         <div className="container mx-auto mb-10 px-4 max-w-screen-xl relative z-10">
           <Navbar isDark={isDark} toggleTheme={toggleTheme} />
           <main id="main-content" className="pt-24">
