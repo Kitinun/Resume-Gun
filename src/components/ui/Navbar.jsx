@@ -75,11 +75,20 @@ const Navbar = ({ isDark, toggleTheme }) => {
               {language === 'en' ? 'EN' : 'TH'}
             </button>
             <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+            <div 
+              className="hidden sm:flex items-center ml-2 px-2 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold rounded-full border border-blue-200 dark:border-blue-800/50 cursor-help transition-all hover:scale-105"
+              title={`Build: ${typeof __BUILD_DATE__ !== 'undefined' ? new Date(__BUILD_DATE__).toLocaleString() : 'Dev'}`}
+            >
+              v{typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'}
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="tablet:hidden flex items-center gap-2">
+          <div className="flex items-center mr-1 px-2 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold rounded-full border border-blue-200 dark:border-blue-800/50">
+            v{typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'}
+          </div>
           <button
             onClick={toggleLanguage}
             aria-label="Toggle language"

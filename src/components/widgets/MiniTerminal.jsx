@@ -10,7 +10,7 @@ const MiniTerminal = () => {
   const [fps, setFps] = useState(0);
   const [memory, setMemory] = useState(0);
   const [history, setHistory] = useState([
-    { type: 'system', text: 'Welcome to KitinunOS v1.0.0' },
+    { type: 'system', text: `Welcome to KitinunOS v${typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'} (Build: ${typeof __BUILD_DATE__ !== 'undefined' ? new Date(__BUILD_DATE__).toLocaleString() : 'Dev'})` },
     { type: 'system', text: 'Type "help" to see available commands.' }
   ]);
   const inputRef = useRef(null);
